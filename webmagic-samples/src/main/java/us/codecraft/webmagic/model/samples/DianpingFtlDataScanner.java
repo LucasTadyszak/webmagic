@@ -17,6 +17,8 @@ import java.util.List;
 @TargetUrl("http://*.alpha.dp/*")
 public class DianpingFtlDataScanner implements AfterExtractor {
 
+    private final int MINSIZEDATA = 100;
+
 	@ExtractBy(value = "(DP\\.data\\(\\{.*\\}\\));", type = ExtractBy.Type.Regex, notNull = true, multi = true)
 	private List<String> data;
 
@@ -30,7 +32,7 @@ public class DianpingFtlDataScanner implements AfterExtractor {
 		if (data.size() > 1) {
 			System.err.println(page.getUrl());
 		}
-		if (data.size() > 0 && data.get(0).length() > 100) {
+		if (data.size() > 0 && data.get(0).length() > MINSIZEDATA) {
 			System.err.println(page.getUrl());
 		}
 	}

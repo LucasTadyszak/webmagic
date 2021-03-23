@@ -18,11 +18,14 @@ import java.util.List;
  */
 public class PhantomJSPageProcessor implements PageProcessor {
 
+    private final int TRYTIMES = 3; // Nombre d'essai avant time out
+    private final int SLEEPTIMES = 1000; // Temps avant sleep time
+
     private Site site = Site.me()
             .setDomain("s.taobao.com")
             .setCharset("GBK")
             .addHeader("Referer", "http://www.taobao.com/")
-            .setRetryTimes(3).setSleepTime(1000);
+            .setRetryTimes(TRYTIMES).setSleepTime(SLEEPTIMES);
 
     @Override
     public void process(Page page) {

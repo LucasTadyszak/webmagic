@@ -18,6 +18,8 @@ import us.codecraft.webmagic.utils.HttpConstant;
  */
 public class Site {
 
+    private final int HASHCODE = 31; // Valeur aléatoire qui permet de créer un code de hashage.
+
     private String domain;
 
     private String userAgent;
@@ -376,15 +378,15 @@ public class Site {
     @Override
     public int hashCode() {
         int result = domain != null ? domain.hashCode() : 0;
-        result = 31 * result + (userAgent != null ? userAgent.hashCode() : 0);
-        result = 31 * result + (defaultCookies != null ? defaultCookies.hashCode() : 0);
-        result = 31 * result + (charset != null ? charset.hashCode() : 0);
-        result = 31 * result + sleepTime;
-        result = 31 * result + retryTimes;
-        result = 31 * result + cycleRetryTimes;
-        result = 31 * result + timeOut;
-        result = 31 * result + (acceptStatCode != null ? acceptStatCode.hashCode() : 0);
-        result = 31 * result + (headers != null ? headers.hashCode() : 0);
+        result = HASHCODE * result + (userAgent != null ? userAgent.hashCode() : 0);
+        result = HASHCODE * result + (defaultCookies != null ? defaultCookies.hashCode() : 0);
+        result = HASHCODE * result + (charset != null ? charset.hashCode() : 0);
+        result = HASHCODE * result + sleepTime;
+        result = HASHCODE * result + retryTimes;
+        result = HASHCODE * result + cycleRetryTimes;
+        result = HASHCODE * result + timeOut;
+        result = HASHCODE * result + (acceptStatCode != null ? acceptStatCode.hashCode() : 0);
+        result = HASHCODE * result + (headers != null ? headers.hashCode() : 0);
         return result;
     }
 

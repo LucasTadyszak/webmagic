@@ -17,6 +17,8 @@ import java.util.Map;
  */
 public class Request implements Serializable {
 
+    private final int HASHCODE = 31; // Valeur aléatoire qui permet de créer un code de hashage.
+
     private static final long serialVersionUID = 2062192774891352043L;
 
     public static final String CYCLE_TRIED_TIMES = "_cycle_tried_times";
@@ -136,7 +138,7 @@ public class Request implements Serializable {
     @Override
     public int hashCode() {
         int result = url != null ? url.hashCode() : 0;
-        result = 31 * result + (method != null ? method.hashCode() : 0);
+        result = HASHCODE * result + (method != null ? method.hashCode() : 0);
         return result;
     }
 
