@@ -231,7 +231,6 @@ class WebDriverPool {
 		for (WebDriver webDriver : webDriverList) {
 			logger.info("Quit webDriver" + webDriver);
 			webDriver.quit();
-			webDriver = null;
 		}
 	}
 
