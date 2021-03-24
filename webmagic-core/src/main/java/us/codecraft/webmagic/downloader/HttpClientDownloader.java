@@ -105,7 +105,7 @@ public class HttpClientDownloader extends AbstractDownloader {
         httpClientGenerator.setPoolSize(thread);
     }
 
-    protected Page handleResponse(Request request, String charset, HttpResponse httpResponse, Task task) throws IOException {
+    protected Page handleResponse(Request request, String charset, HttpResponse httpResponse) throws IOException {
         byte[] bytes = IOUtils.toByteArray(httpResponse.getEntity().getContent());
         String contentType = httpResponse.getEntity().getContentType() == null ? "" : httpResponse.getEntity().getContentType().getValue();
         Page page = new Page();
