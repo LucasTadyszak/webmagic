@@ -1,0 +1,4 @@
+{
+    "trailing-spaces.deleteModifiedLinesOnly": true,
+    "trailing-spaces.trimOnSave": true
+}
